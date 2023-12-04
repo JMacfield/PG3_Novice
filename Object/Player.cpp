@@ -20,8 +20,7 @@ void Player::Initialize() {
 }
 
 void Player::Update() {
-	Move();
-	Attack();
+	//Attack();
 
 	if (isAttack_) {
 		bulletPosition_.y -= 6.0f;
@@ -40,22 +39,12 @@ void Player::Draw() {
 	}
 }
 
-void Player::Move() {
-	if (inputManager_->PressKey(DIK_A)) {
-		position_.x -= moveSpeed_;
-	}
+void Player::MoveRight() {
+	this->position_.x += this->moveSpeed_;
+}
 
-	if (inputManager_->PressKey(DIK_D)) {
-		position_.x += moveSpeed_;
-	}
-
-	if (inputManager_->PressKey(DIK_W)) {
-		position_.y -= moveSpeed_;
-	}
-
-	if (inputManager_->PressKey(DIK_S)) {
-		position_.y += moveSpeed_;
-	}
+void Player::MoveLeft() {
+	this->position_.x -= this->moveSpeed_;
 }
 
 void Player::Attack() {

@@ -5,7 +5,10 @@ StageScene::~StageScene() {
 }
 
 void StageScene::Initialize() {
-	inputManager_ = InputManager::GetInstance();
+	inputHandler_ = new InputHandler();
+
+	inputHandler_->AssignMoveLeftCommandToPressKeyA();
+	inputHandler_->AssignMoveRightCommandToPressKeyD();
 
 	player_ = std::make_unique<Player>();
 	player_->Initialize();
@@ -15,7 +18,14 @@ void StageScene::Initialize() {
 }
 
 void StageScene::Update() {
+	command_ = inputHandler_->HandleInput();
+
+	if (this->command_) {
+		command_->Execute(*player_);
+	}
+
 	player_->Update();
+	
 	enemy_->Update();
 
 	Vector2 Distance = {

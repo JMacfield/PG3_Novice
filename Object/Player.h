@@ -12,6 +12,9 @@ public:
 	void Update();
 	void Draw();
 
+	void MoveRight();
+	void MoveLeft();
+
 	Vector2 GetPosition() { return position_; }
 	Vector2 GetBulletPosition() { return bulletPosition_; }
 
@@ -24,6 +27,5 @@ private:
 
 	InputManager* inputManager_;
 
-	void Move();
 	void Attack();
 };
