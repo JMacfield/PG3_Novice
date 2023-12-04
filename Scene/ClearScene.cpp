@@ -9,14 +9,14 @@ void ClearScene::Initialize() {
 }
 
 void ClearScene::Update() {
-	if (inputManager_->PressKey(DIK_N)) {
+	if (inputManager_->PressKey(DIK_SPACE)) {
 		sceneNumber_ = TITLE_SCENE;
 	}
 }
 
 void ClearScene::Draw() {
 	Novice::ScreenPrintf(200, 400, "This is Clear Scene");
-	Novice::ScreenPrintf(200, 420, "Press N to Title");
+	Novice::ScreenPrintf(200, 420, "Press SPACE to Title");
 }
 
 void ClearScene::Finalize() {
